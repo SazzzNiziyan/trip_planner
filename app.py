@@ -1,34 +1,19 @@
 import pandas as pd
 from flask import Flask, render_template, request
-import os  # <-- ADD THIS LINE
+import os
 
-# ... (all your existing Flask routes and functions) ...
-
-
-# 5. Run the app (MODIFIED FOR DEPLOYMENT)
-if __name__ == '__main__':
-    # Get port from environment variable or choose 10000 as a default
-    port = int(os.environ.get('PORT', 10000))
-    # The host '0.0.0.0' makes the server publicly available
-    app.run(host='0.0.0.0', port=port)
-
-
-# 1. Initialize the Flask App
+# Initialize the Flask App
 app = Flask(__name__)
 
-# 2. Helper function to load and clean data
+# Helper function to load and clean data
 def load_travel_data():
     """Loads data from CSV and converts price columns to numbers."""
     try:
         df = pd.read_csv('travel_packages.csv')
-        # Convert price columns to a number type to prevent errors
-        df['price_per_adult'] = pd.to_numeric(df['price_per_adult'])
-        df['price_per_child'] = pd.to_numeric(df['price_per_child'])
-        # Convert other numeric columns to be safe
-        df['min_days'] = pd.to_numeric(df['min_days'])
-        df['max_days'] = pd.to_numeric(df['max_days'])
-        df['min_people'] = pd.to_numeric(df['min_people'])
-        df['max_people'] = pd.to_numeric(df['max_people'])
+        # Convert all relevant columns to number types to prevent errors
+        numeric_cols = ['price_per_adult', 'price_per_child', 'min_days', 'max_days', 'min_people', 'max_people']
+        for col in numeric_cols:
+            df[col] = pd.to_numeric(df[col])
         return df
     except FileNotFoundError:
         print("Error: 'travel_packages.csv' not found. Make sure the file is in the correct directory.")
@@ -37,13 +22,13 @@ def load_travel_data():
         print(f"An error occurred while processing the CSV: {e}")
         return pd.DataFrame()
 
-# 3. Route for the home page (the form)
+# Route for the home page (the form)
 @app.route('/')
 def index():
     """Renders the main input form page."""
     return render_template('index.html')
 
-# 4. Route to handle form submission and display results
+# Route to handle form submission and display results
 @app.route('/results', methods=['POST'])
 def results():
     """Processes form data and displays matching travel packages."""
@@ -94,3 +79,9 @@ def results():
             """
         return response_html
 
+# This block runs the app and is essential for deployment
+if __name__ == '__main__':
+    # Get port from environment variable, default to 10000 for local testing
+    port = int(os.environ.get('PORT', 10000))
+    # Host '0.0.0.0' makes the server publicly available
+    app.run(host='0.0.0.0', port=port)
