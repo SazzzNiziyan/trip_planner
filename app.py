@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from flask import Flask, render_template, request
 
@@ -84,5 +85,6 @@ def results():
 
 # 5. Run the app
 if __name__ == '__main__':
-    # For development only. For production, use a proper WSGI server.
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
+import os
