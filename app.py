@@ -1,6 +1,17 @@
-import os
 import pandas as pd
 from flask import Flask, render_template, request
+import os  # <-- ADD THIS LINE
+
+# ... (all your existing Flask routes and functions) ...
+
+
+# 5. Run the app (MODIFIED FOR DEPLOYMENT)
+if __name__ == '__main__':
+    # Get port from environment variable or choose 10000 as a default
+    port = int(os.environ.get('PORT', 10000))
+    # The host '0.0.0.0' makes the server publicly available
+    app.run(host='0.0.0.0', port=port)
+
 
 # 1. Initialize the Flask App
 app = Flask(__name__)
@@ -83,8 +94,3 @@ def results():
             """
         return response_html
 
-# 5. Run the app
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 10000))
-    app.run(host='0.0.0.0', port=port)
-import os
