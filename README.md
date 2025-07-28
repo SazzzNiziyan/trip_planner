@@ -130,9 +130,9 @@ A: We plan to make the UI fully responsive and may consider a mobile app in futu
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/SazzzNiziyan"><img src="https://avatars.githubusercontent.com/u/120979306?v=4" width="80" /><br/>Kabeer Singh</a></td>
-    <td align="center"><a href="#"><img src="https://avatars.githubusercontent.com/u/120979307?v=4" width="80" /><br/>Rachit Srivastava</a></td>
-    <td align="center"><a href="#"><img src="https://avatars.githubusercontent.com/u/120979308?v=4" width="80" /><br/>Priyan Singh</a></td>
+    <td align="center"><a href="https://github.com/kabir3217"><img src="https://avatars.githubusercontent.com/u/120979306?v=4" width="80" /><br/>Kabeer Singh</a></td>
+    <td align="center"><a href="https://github.com/Rachit-Srivastava24"><img src="https://avatars.githubusercontent.com/u/120979307?v=4" width="80" /><br/>Rachit Srivastava</a></td>
+    <td align="center"><a href="https://github.com/priyan2328"><img src="https://avatars.githubusercontent.com/u/120979308?v=4" width="80" /><br/>Priyan Singh</a></td>
   </tr>
 </table>
 
