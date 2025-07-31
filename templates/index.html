@@ -3,54 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trip Planner</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Combined Trip Planner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+            padding: 2rem;
+        }
+        .form-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-weight: 600;
+            color: #3f3d56;
+            margin-bottom: 0.5rem;
+        }
+        p {
+            margin-bottom: 2rem;
+            color: #6c757d;
+        }
+        .input-group, fieldset {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .input-group label, legend {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        .inline-inputs { display: flex; gap: 1rem; }
+        .inline-inputs .input-group { flex: 1; }
+        fieldset {
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+        }
+        legend {
+            padding: 0 0.5rem;
+            font-weight: 600;
+        }
+        .checkbox-group, .radio-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .checkbox-group label, .radio-group label {
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        input[type="checkbox"], input[type="radio"] {
+            margin-right: 8px;
+            width: auto;
+        }
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            background-color: #667eea;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover { background-color: #5a6edc; }
+    </style>
 </head>
 <body>
-
-    <div class="container">
-        <div class="form-card">
-            <h1>Plan Your Next Adventure 🗺️</h1>
-            <p>Fill in your preferences and we'll find the perfect trip for you!</p>
-            <form action="/results" method="post">
+    <div class="form-card">
+        <h1>Plan Your Next Adventure 🗺</h1>
+        <p>Fill in all your preferences and we'll find the perfect trip with a detailed itinerary!</p>
+        
+        <form action="/results" method="post">
+            <!-- Trip Planner Inputs -->
+            <div class="input-group">
+                <label for="season">Preferred Season</label>
+                <select id="season" name="season" required>
+                    <option value="Winter">Winter ❄</option>
+                    <option value="Summer">Summer ☀</option>
+                    <option value="Monsoon">Monsoon 🌧</option>
+                    <option value="Autumn">Autumn 🍂</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="days">How many days do you want to travel?</label>
+                <input type="number" id="days" name="days" min="1" placeholder="e.g., 5" required>
+            </div>
+            <div class="inline-inputs">
                 <div class="input-group">
-                    <label for="season">Preferred Season</label>
-                    <select id="season" name="season" required>
-                        <option value="Winter">Winter ❄️</option>
-                        <option value="Summer">Summer ☀️</option>
-                        <option value="Monsoon">Monsoon 🌧️</option>
-                        <option value="Autumn">Autumn 🍂</option>
-                    </select>
+                    <label for="adults">Adults</label>
+                    <input type="number" id="adults" name="adults" min="1" value="2" required>
                 </div>
-
                 <div class="input-group">
-                    <label for="days">How many days do you want to travel?</label>
-                    <input type="number" id="days" name="days" min="1" placeholder="e.g., 5" required>
+                    <label for="children">Children</label>
+                    <input type="number" id="children" name="children" min="0" value="0" required>
                 </div>
+            </div>
+            <div class="input-group">
+                <label for="budget">Max Budget (per person)</label>
+                <input type="number" id="budget" name="budget" min="5000" step="1000" placeholder="e.g., 25000" required>
+            </div>
 
-                <div class="inline-inputs">
-                    <div class="input-group">
-                        <label for="adults">Adults</label>
-                        <input type="number" id="adults" name="adults" min="1" value="2" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="children">Children</label>
-                        <input type="number" id="children" name="children" min="0" value="0" required>
-                    </div>
+            <!-- Itinerary Planner Inputs -->
+            <fieldset>
+                <legend>What are your interests?</legend>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="interest" value="history"> History</label>
+                    <label><input type="checkbox" name="interest" value="art"> Art</label>
+                    <label><input type="checkbox" name="interest" value="culture"> Culture</label>
+                    <label><input type="checkbox" name="interest" value="food"> Food</label>
+                    <label><input type="checkbox" name="interest" value="nature"> Nature</label>
+                    <label><input type="checkbox" name="interest" value="beach"> Beach</label>
+                    <label><input type="checkbox" name="interest" value="shopping"> Shopping</label>
+                    <label><input type="checkbox" name="interest" value="nightlife"> Nightlife</label>
                 </div>
-
-                <div class="input-group">
-                    <label for="budget">Your Max Budget (per person)</label>
-                    <input type="number" id="budget" name="budget" min="5000" step="1000" placeholder="e.g., 25000" required>
+            </fieldset>
+            <fieldset>
+                <legend>What pace do you prefer?</legend>
+                <div class="radio-group">
+                    <label><input type="radio" name="pace" value="relaxed" checked> Relaxed</label>
+                    <label><input type="radio" name="pace" value="packed"> Packed</label>
                 </div>
+            </fieldset>
 
-                <button type="submit">Find My Trip!</button>
-            </form>
-        </div>
+            <button type="submit">Find My Trip!</button>
+        </form>
     </div>
-
 </body>
 </html>

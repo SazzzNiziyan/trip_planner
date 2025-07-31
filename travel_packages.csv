@@ -1,101 +1,98 @@
-id,destination,season,min_days,max_days,min_people,max_people,price_per_adult,price_per_child,description
-1,Shimla,Winter,3,5,2,6,15000,7000,"Experience the snow-capped mountains of Shimla."
-2,Goa,Winter,4,7,2,10,20000,9000,"Relax on the sunny beaches of Goa."
-3,Kerala,Monsoon,5,10,2,8,25000,12000,"Explore the serene backwaters of Kerala."
-4,Jaipur,Summer,2,4,1,5,12000,6000,"Discover the royal palaces of the Pink City."
-5,Rishikesh,Summer,3,6,2,12,10000,5000,"Adventure sports and spiritual vibes by the Ganges."
-6,Leh-Ladakh,Summer,7,14,2,4,40000,20000,"A thrilling bike trip through mountain passes."
-7,Darjeeling,Autumn,4,6,2,6,18000,8000,"Enjoy the toy train and tea gardens."
-8,Manali,Winter,4,8,2,5,16000,7200,"Skiing and snowboarding among the Himalayan peaks."
-9,Ooty,Autumn,3,5,2,6,17000,8000,"Misty hills and botanical gardens await in Ooty."
-10,Udaipur,Spring,2,4,1,4,15000,7000,"Romantic boat rides and regal architecture in Udaipur."
-11,Mysore,Winter,3,6,2,8,14000,6500,"Witness royal heritage and grand palaces in Mysore."
-12,Pondicherry,Winter,2,5,2,6,15500,7000,"French vibes and serene beaches in Pondicherry."
-13,Agra,Autumn,2,4,2,10,13000,6000,"Home of the magnificent Taj Mahal."
-14,Varanasi,Spring,3,6,1,5,12500,5800,"Spiritual ghats and soulful Ganga aartis."
-15,Kolkata,Winter,4,7,2,8,16000,7500,"Colonial charm and cultural richness in Kolkata."
-16,Mumbai,Summer,3,6,2,6,18000,8500,"The city that never sleeps, full of Bollywood dreams."
-17,Chennai,Autumn,3,5,2,7,15000,7000,"Temples and beaches meet in this cultural hub."
-18,Hyderabad,Monsoon,2,5,1,5,15500,7300,"Biryani, pearls, and Mughal grandeur."
-19,Bangalore,Spring,3,6,2,10,16000,7500,"The garden city with tech and tradition."
-20,Coorg,Monsoon,4,7,2,6,17000,8200,"Coffee plantations and misty hills in Coorg."
-21,Andaman,Winter,5,9,2,6,30000,14000,"Pristine beaches and underwater adventures."
-22,Nainital,Summer,3,6,2,8,15000,7000,"Boating in the lake and cable car rides."
-23,Mussoorie,Summer,3,5,2,6,14500,6800,"The queen of hills with colonial charm."
-24,Auli,Winter,4,7,2,4,25000,12000,"Perfect for skiing and snow activities."
-25,Kasol,Spring,3,5,2,6,13500,6400,"Chill Himalayan vibes and cafes by the river."
-26,Spiti,Summer,7,12,2,4,28000,13500,"Barren beauty and monasteries in Spiti Valley."
-27,Tawang,Spring,5,9,2,6,26000,12000,"Peaceful town with Buddhist monasteries."
-28,Shillong,Monsoon,4,6,2,6,19000,8500,"Scotland of the East with waterfalls."
-29,Cherrapunji,Monsoon,3,5,2,5,18500,8200,"Wettest place on Earth, rich with nature."
-30,Kodaikanal,Summer,3,6,2,6,16000,7500,"The princess of hill stations."
-31,Mahabaleshwar,Spring,2,4,1,4,14000,6700,"Strawberries, viewpoints, and valleys."
-32,Mount Abu,Summer,3,5,2,6,15000,7000,"Rajasthan's only hill station retreat."
-33,Lucknow,Autumn,2,4,2,6,13000,6000,"Nawabi food, culture, and heritage."
-34,Bhopal,Winter,2,5,2,6,13500,6300,"Lakes and heritage structures."
-35,Indore,Spring,3,5,2,6,12500,6000,"Street food capital of India."
-36,Jaisalmer,Winter,4,6,2,6,20000,9000,"Golden desert and camel safaris."
-37,Jodhpur,Winter,3,5,2,5,18000,8500,"The blue city with majestic forts."
-38,Ajmer,Summer,2,4,1,4,12000,5800,"Famous for Dargah and Pushkar nearby."
-39,Pushkar,Summer,2,4,2,6,12500,6000,"Ghats, temples, and camel fair vibes."
-40,Hampi,Winter,3,6,2,5,17000,7800,"Ruins and temples from Vijayanagar Empire."
-41,Badami,Spring,3,5,2,4,16000,7500,"Ancient rock-cut temples and caves."
-42,Ranthambore,Winter,2,5,2,6,18000,8200,"Tiger safari in Rajasthan."
-43,Jim Corbett,Winter,3,5,2,6,17500,8000,"Wildlife safari in Uttarakhand."
-44,Kaziranga,Spring,4,7,2,5,22000,10000,"Home of the one-horned rhinoceros."
-45,Gir,Winter,3,5,2,5,20000,9500,"Only place to spot Asiatic lions."
-46,Sundarbans,Monsoon,4,6,2,4,24000,11000,"Mangroves and Bengal tigers."
-47,Gulmarg,Winter,4,8,2,6,27000,13000,"Snow paradise for winter sports."
-48,Srinagar,Spring,4,7,2,6,25000,12000,"Shikara rides and tulip gardens."
-49,Amritsar,Winter,2,4,2,6,14000,6500,"Golden Temple and patriotic vibes."
-50,Patna,Autumn,2,4,1,5,12500,6000,"Historic city with modern touch."
-51,Bodh Gaya,Winter,3,5,1,5,13500,6300,"Spiritual haven and enlightenment spot."
-52,Rajgir,Spring,2,4,2,6,13000,6000,"Ancient seat of learning and hot springs."
-53,Gaya,Autumn,2,4,1,4,12500,5800,"Holy city for pind daan rituals."
-54,Ranchi,Summer,3,6,2,6,14000,6500,"Waterfalls and cool weather retreat."
-55,Raipur,Winter,3,5,2,6,14500,6700,"Emerging city with tribal culture nearby."
-56,Nagpur,Summer,2,4,2,5,14000,6600,"Orange city with tiger reserves nearby."
-57,Puri,Winter,3,5,2,6,15500,7200,"Home of Jagannath temple and sea beach."
-58,Konark,Spring,2,4,1,4,15000,7000,"Famous for the ancient Sun Temple."
-59,Bhubaneswar,Winter,3,6,2,6,16000,7500,"City of temples and smart city blend."
-60,Rameswaram,Winter,4,6,2,5,18000,8500,"Sacred town with Ram Setu legends."
-61,Madurai,Summer,2,4,2,5,14000,6800,"Ancient temples and vibrant city life."
-62,Tirupati,Winter,2,4,1,5,15000,7000,"Pilgrimage town known for Tirumala temple."
-63,Vellore,Autumn,2,4,2,5,13000,6000,"Home to a famous fort and Christian hospital."
-64,Kanchipuram,Winter,2,4,1,4,14000,6500,"City of temples and silk sarees."
-65,Tanjore,Summer,2,4,2,5,13000,6000,"Historical city known for art and temples."
-66,Thiruvananthapuram,Monsoon,3,6,2,6,16000,7500,"Beaches and heritage architecture."
-67,Alleppey,Monsoon,4,6,2,5,18000,8500,"Houseboats and tranquil backwaters."
-68,Munnar,Summer,3,6,2,5,17000,8000,"Tea gardens and cool climate."
-69,Wayanad,Monsoon,3,5,2,6,16500,7800,"Wildlife, waterfalls and spice plantations."
-70,Kanyakumari,Spring,2,4,2,6,15000,7000,"The tip of India with 3-sea confluence."
-71,Lavasa,Autumn,2,4,2,5,14500,6800,"Planned hill city with lakefront charm."
-72,Lonavala,Monsoon,2,4,2,5,14000,6600,"Rain-soaked hills and chikki delight."
-73,Panchgani,Summer,3,5,2,6,15000,7000,"Table lands and strawberry farms."
-74,Nashik,Spring,2,4,2,5,13500,6500,"Wine capital and pilgrimage blend."
-75,Shirdi,Winter,2,4,2,5,14000,6700,"Spiritual home of Sai Baba."
-76,Aurangabad,Autumn,3,5,2,6,15500,7200,"Ellora and Ajanta caves highlight."
-77,Kolhapur,Summer,2,4,2,5,13000,6000,"Temple town with spicy food legacy."
-78,Solapur,Spring,2,4,2,5,12500,5800,"Famous for textiles and temples."
-79,Satara,Summer,3,5,2,5,13500,6200,"Valleys and waterfalls in the Sahyadris."
-80,Gangtok,Winter,3,5,2,6,18000,8500,"Clean streets and Himalayan peace."
-81,Namchi,Spring,2,4,2,5,16500,7700,"Buddhist monasteries and giant statues."
-82,Ziro,Summer,4,6,2,5,20000,9000,"Rolling hills and the Apatani culture."
-83,Itanagar,Spring,3,5,2,6,18000,8000,"Capital town with tribal roots."
-84,Imphal,Autumn,3,5,2,6,18500,8200,"Loktak Lake and heritage sights."
-85,Aizawl,Winter,3,5,2,5,17000,7500,"Peaceful and scenic capital of Mizoram."
-86,Agartala,Winter,3,5,2,5,16500,7400,"Temples, palaces, and greenery."
-87,Silvassa,Summer,2,4,2,6,14000,6700,"Lakes and tribal museum getaway."
-88,Daman,Monsoon,2,4,2,6,14500,6800,"Beaches, churches, and cheap liquor."
-89,Diu,Summer,3,5,2,6,16000,7200,"Portuguese forts and coastal serenity."
-90,Lakshadweep,Winter,5,8,2,4,35000,16000,"Crystal-clear waters and coral reefs."
-91,Kavaratti,Winter,4,7,2,4,34000,15500,"Capital island with blue lagoons."
-92,Port Blair,Winter,4,7,2,6,32000,15000,"Gateway to the Andamans."
-93,Chandigarh,Spring,2,4,2,6,15000,7000,"Modern city with gardens and rock art."
-94,Panchkula,Autumn,2,4,2,5,14000,6700,"Suburban charm near Chandigarh."
-95,Dehradun,Summer,3,5,2,6,16000,7500,"Capital of Uttarakhand with cool weather."
-96,Haridwar,Winter,2,4,2,6,13000,6000,"Holy dips and Ganga aarti."
-97,Roorkee,Spring,2,4,1,4,12500,5800,"Known for IIT and British-era charm."
-98,Noida,Winter,2,4,2,5,14000,6500,"Modern hub next to Delhi."
-99,Ghaziabad,Winter,2,4,2,5,13500,6300,"Urban city with heritage links."
-100,Gurgaon,Winter,2,4,2,6,14500,6800,"Corporate capital with nightlife."
+destination,description,season,price_per_adult,price_per_child,min_days,max_days,min_people,max_people
+Paris,"The city of lights, famous for its art, fashion, and culture.",Summer,50000,25000,5,10,1,5
+Goa,"A coastal paradise known for its beaches, nightlife, and tropical spices.",Winter,20000,10000,3,7,1,10
+Kyoto,"Japan's former imperial capital, known for its temples, gardens, and traditional teahouses.",Autumn,60000,30000,4,8,1,4
+Manali,"A Himalayan resort town, popular for adventure sports and mountain views.",Summer,15000,7000,3,6,2,8
+Kerala,"God's Own Country, famous for its backwaters and lush green landscapes.",Monsoon,25000,12000,5,10,2,6
+Bali,"Indonesian paradise with beaches, coral reefs, and forested volcanic mountains.",Summer,30000,15000,4,9,2,6
+Dubai,"Known for luxury shopping, ultramodern architecture, and lively nightlife.",Winter,40000,20000,3,6,1,5
+Barcelona,"Spanish city known for its art, architecture, and vibrant street life.",Spring,45000,22000,4,7,1,6
+Istanbul,"A city where East meets West, with rich history and stunning landmarks.",Autumn,35000,18000,3,8,1,6
+New York,"The city that never sleeps, known for its skyline and cultural diversity.",Winter,55000,27000,4,9,1,5
+Tokyo,"Japan's bustling capital known for its modernity, culture, and cuisine.",Spring,60000,30000,5,10,1,4
+Bangkok,"Thailand’s capital, famous for ornate shrines and vibrant street life.",Summer,25000,12000,3,7,1,6
+Rome,"A historical treasure, home to the Colosseum, Vatican, and Renaissance art.",Autumn,50000,24000,4,9,1,5
+Singapore,"Clean, green, and futuristic city-state with world-class attractions.",Winter,40000,20000,3,6,1,5
+Leh,"A high-desert city in the Himalayas known for trekking and Buddhist sites.",Summer,18000,9000,5,10,2,6
+Cairo,"Home of the pyramids and ancient Egyptian history.",Winter,35000,18000,4,8,1,5
+Sydney,"Famous for its harbourfront Opera House and beaches.",Spring,55000,27000,4,9,1,6
+Rio de Janeiro,"City of Carnival and Christ the Redeemer.",Summer,50000,25000,4,8,2,6
+Amsterdam,"Canal-ringed city known for art, cycling, and tulips.",Spring,48000,24000,4,7,1,6
+Santorini,"Greek island famous for sunsets and whitewashed buildings.",Autumn,42000,21000,3,6,1,4
+Venice,"City of canals, romance, and Italian cuisine.",Spring,46000,23000,4,7,1,5
+Munnar,"Hill station in Kerala known for tea gardens and cool climate.",Monsoon,20000,10000,3,6,2,6
+Maldives,"Island nation known for luxury resorts and turquoise waters.",Winter,60000,30000,5,10,2,4
+London,"Historic yet modern city, rich in culture and museums.",Autumn,55000,27000,4,9,1,5
+Prague,"Czech capital known for Gothic buildings and medieval charm.",Spring,45000,22000,3,6,1,5
+Los Angeles,"Home of Hollywood, beaches, and entertainment.",Summer,53000,26000,4,8,1,6
+Jaipur,"The Pink City known for palaces and heritage.",Winter,18000,9000,3,6,2,10
+Copenhagen,"Denmark's capital with modern design and historic charm.",Autumn,52000,26000,4,9,1,4
+Seoul,"South Korea’s capital full of pop culture, palaces, and cuisine.",Spring,50000,25000,5,10,1,4
+Vienna,"Austrian capital known for classical music and imperial history.",Autumn,49000,24000,3,7,1,5
+Zermatt,"Swiss town famous for skiing and the Matterhorn.",Winter,60000,30000,4,8,2,6
+Hanoi,"Vietnamese capital known for its history and street food.",Monsoon,25000,12000,3,6,1,6
+Beijing,"China's capital with Great Wall and Forbidden City.",Spring,52000,26000,4,9,1,5
+Udaipur,"City of lakes and royal palaces.",Winter,20000,10000,3,7,2,8
+Kuala Lumpur,"Malaysian capital with skyline dominated by Petronas Towers.",Summer,30000,15000,4,7,1,6
+Tulum,"Mexican town known for beaches and Mayan ruins.",Autumn,45000,22000,3,6,2,6
+Moscow,"Russia’s capital full of history and architectural marvels.",Winter,50000,25000,4,8,1,5
+Phuket,"Thai island with beaches and resorts.",Summer,27000,13000,3,7,2,6
+Zurich,"Swiss city with luxury shopping and Alpine views.",Autumn,55000,28000,4,8,1,4
+Madrid,"Spanish capital known for its nightlife and royal palace.",Spring,48000,24000,3,6,1,6
+Queenstown,"Adventure capital of New Zealand.",Summer,53000,26000,5,10,2,6
+Barcelona,"Artistic and lively city by the sea.",Autumn,46000,23000,3,6,1,5
+Colombo,"Sri Lankan capital with heritage and beaches.",Winter,28000,14000,3,7,2,6
+Langkawi,"Island in Malaysia known for beaches and forests.",Monsoon,26000,13000,4,8,2,6
+Lonavala,"Weekend hill station near Mumbai.",Monsoon,15000,7500,2,4,2,10
+Ooty,"Queen of hill stations in Tamil Nadu.",Summer,17000,8500,3,6,2,8
+Shimla,"Snowy escape with colonial charm.",Winter,18000,9000,3,7,2,8
+Darjeeling,"Famous for tea gardens and Himalayan views.",Autumn,19000,9500,4,7,2,6
+Helsinki,"Finnish capital with seaside charm and design culture.",Summer,48000,24000,3,7,1,5
+Lucerne,"Swiss town with lakeside beauty and medieval architecture.",Spring,55000,27000,4,8,1,4
+Nairobi,"Gateway to African safaris and wildlife experiences.",Winter,40000,20000,4,9,2,6
+Reykjavik,"Capital of Iceland, known for geothermal spas and Northern Lights.",Winter,65000,32000,5,10,1,4
+Lisbon,"Portuguese capital with coastal beauty and rich history.",Autumn,47000,23000,4,8,1,5
+Edinburgh,"Scottish city with castles and festivals.",Summer,50000,25000,4,9,1,5
+Budapest,"Hungarian capital known for thermal baths and architecture.",Spring,45000,22000,3,7,1,6
+Brussels,"Belgian city famous for waffles, chocolates, and art nouveau.",Autumn,46000,23000,3,6,1,5
+Buenos Aires,"Argentine capital, home of tango and European charm.",Spring,50000,25000,4,8,2,6
+Cape Town,"South African city with beaches, mountains, and vineyards.",Summer,55000,27000,4,9,2,6
+Oslo,"Norwegian capital with Viking history and fjords.",Winter,60000,30000,5,10,1,4
+Doha,"Modern Gulf city with skyscrapers and cultural museums.",Winter,42000,21000,3,7,1,5
+Tbilisi,"Georgian city with cobblestone streets and hot springs.",Spring,35000,18000,4,8,1,5
+Baku,"Azerbaijan’s capital with a mix of ancient and modern architecture.",Autumn,36000,18000,4,8,1,5
+Thimphu,"Capital of Bhutan with Buddhist culture and mountains.",Monsoon,30000,15000,5,10,2,6
+Pokhara,"Nepali city known for trekking and Himalayan views.",Spring,25000,12000,3,7,2,6
+Kandy,"Cultural heart of Sri Lanka with temples and hills.",Monsoon,26000,13000,3,6,2,6
+Mussoorie,"Hill station in Uttarakhand with colonial charm.",Summer,18000,9000,2,5,2,10
+Mount Abu,"Only hill station in Rajasthan with cool climate.",Winter,17000,8500,3,6,2,10
+Shillong,"Scenic capital of Meghalaya known for waterfalls.",Monsoon,20000,10000,3,7,2,6
+Gulmarg,"Ski resort in Jammu and Kashmir with snowy landscapes.",Winter,25000,12000,4,8,2,6
+Kovalam,"Beach destination in Kerala known for lighthouses.",Monsoon,22000,11000,3,6,2,6
+Rishikesh,"Spiritual town on the Ganges, known for yoga and rafting.",Summer,19000,9500,3,6,2,8
+Varanasi,"India’s spiritual capital on the banks of the Ganges.",Winter,18000,9000,2,5,2,8
+Pondicherry,"French colonial town with serene beaches and cafés.",Summer,20000,10000,3,6,2,8
+Chikmagalur,"Coffee land of Karnataka with hills and trekking.",Monsoon,18000,9000,3,5,2,8
+Coorg,"The Scotland of India, famous for coffee estates and nature.",Monsoon,20000,10000,3,6,2,6
+Tirupati,"Temple town in Andhra Pradesh attracting pilgrims.",Winter,15000,7500,2,4,2,10
+Aurangabad,"Gateway to Ajanta & Ellora caves with historical importance.",Winter,16000,8000,2,5,2,8
+Nagpur,"Orange city and geographical center of India.",Autumn,17000,8500,2,5,2,8
+Lucknow,"City of Nawabs with heritage, food, and culture.",Winter,18000,9000,2,6,2,8
+Indore,"Cleanest city of India with food and architecture.",Spring,16000,8000,2,5,2,8
+Patna,"Capital of Bihar with historic and religious sites.",Winter,15000,7500,2,4,2,8
+Ranchi,"Capital of Jharkhand with hills and waterfalls.",Monsoon,16000,8000,2,5,2,8
+Imphal,"Manipur's capital with scenic lakes and tribal culture.",Summer,17000,8500,3,6,2,6
+Aizawl,"Capital of Mizoram with pleasant weather and hills.",Monsoon,16000,8000,3,6,2,6
+Agartala,"Tripura’s capital surrounded by forests and temples.",Monsoon,15000,7500,3,5,2,6
+Itanagar,"Scenic hill capital of Arunachal Pradesh.",Summer,17000,8500,4,6,2,6
+Gangtok,"Sikkim's capital with monasteries and Himalayan views.",Autumn,20000,10000,3,6,2,6
+Port Blair,"Capital of Andaman Islands with pristine beaches.",Winter,25000,12000,5,9,2,6
+Diu,"Island town with beaches and Portuguese history.",Summer,22000,11000,3,6,2,6
+Siliguri,"Gateway to North-East and hill stations.",Autumn,18000,9000,2,5,2,8
+Ajmer,"Historic city known for Dargah Sharif and Pushkar nearby.",Winter,17000,8500,2,5,2,8
+Mathura,"Birthplace of Lord Krishna and religious hub.",Winter,16000,8000,2,5,2,8
+Nainital,"Lake town with scenic hills and boating.",Summer,19000,9500,3,6,2,8
+Bhopal,"City of lakes with heritage and natural beauty.",Spring,18000,9000,3,6,2,8
+Pune,"Cultural hub with forts and modern amenities.",Autumn,20000,10000,2,5,2,8
+Ahmedabad,"Gujarat’s heritage city known for stepwells and food.",Winter,19000,9500,3,6,2,8
+Visakhapatnam,"Beach city on the eastern coast of India.",Spring,21000,10500,3,7,2,8

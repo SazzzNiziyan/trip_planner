@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Trip Recommendations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Playwrite PL';
+            src: url("{{ url_for('static', filename='images/PlaywritePL-Regular.ttf') }}") format('truetype');
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image:  url("{{ url_for('static', filename='images/bg.jpg') }}");
+            background-size: cover;
+            background-color: rgba(0, 0, 0, 0.378);
+            background-blend-mode: overlay;
+            background-attachment: fixed;
+            background-position: center;
+            padding: 2rem;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .result-card {
+            background-image: linear-gradient(to bottom, #ffffff, #679acd);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(9, 9, 9, 0.6);
+            margin-bottom: 1.5rem;
+        }
+        .result-card h2 {
+            margin-top: 0;
+            color: tomato;
+            font-family:"Playwrite PL"  ;
+        }
+        .details-summary {
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+        }
+        .details-summary::-webkit-details-marker {
+            display: none;
+        }
+        .details-summary::before {
+            content: '▶';
+            margin-right: 0.5rem;
+            font-size: 0.8em;
+            transition: transform 0.2s;
+        }
+        details[open] > .details-summary::before {
+            transform: rotate(90deg);
+        }
+        .itinerary-content {
+            padding-left: 1.5rem;
+            border-left: 2px solid #eaf2f8;
+            margin-top: 1rem;
+        }
+        .day-header {
+            font-weight: 600;
+            margin-top: 1rem;
+            color: #2c3e50;
+        }
+        .activity-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .activity-item {
+            padding: 0.5rem 0;
+        }
+        .activity-item::before {
+            content: '✓';
+            color: #2ecc71;
+            margin-right: 10px;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Here are your personalized trip options! ✨</h1>
+
+        {% if results %}
+            {% for trip in results %}
+                <div class="result-card">
+                    <h2>{{ trip.destination }}</h2>
+                    <p><strong>Description:</strong> {{ trip.description }}</p>
+                    <p><strong>Total Estimated Cost:</strong> ₹{{ trip.total_cost | int }}</p>
+                    
+                    {% if trip.itinerary %}
+                        <details>
+                            <summary class="details-summary">View Sample Itinerary</summary>
+                            <div class="itinerary-content">
+                                {% for day_plan in trip.itinerary %}
+                                    <h4 class="day-header">Day {{ day_plan.day }}</h4>
+                                    <ul class="activity-list">
+                                        {% for activity in day_plan.activities %}
+                                            <li class="activity-item">{{ activity.name }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endfor %}
+                            </div>
+                        </details>
+                    {% else %}
+                        <p><em>No detailed itinerary available for this destination.</em></p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="result-card" style="text-align: center;">
+                <h2>No matching trips found! 😞</h2>
+                <p>Try adjusting your preferences and search again.</p>
+            </div>
+        {% endif %}
+
+        <a href="/" class="back-link">← Go Back and Plan Another Trip</a>
+    </div>
+</body>
+</html>
