@@ -10,7 +10,7 @@
   <a href="https://github.com/SazzzNiziyan/trip_planner/blob/main/LICENSE"><img src="https://img.shields.io/github/license/SazzzNiziyan/trip_planner?style=flat-square" alt="License"></a>
 </p>
 
----
+----
 
 ## 🌍 Overview
 
