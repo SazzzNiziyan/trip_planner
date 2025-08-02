@@ -3,161 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combined Trip Planner</title>
+    <title>AI Trip Planner - Immersive Edition</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            color: #333;
-            padding: 2rem;
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0a18;
+            overflow-x: hidden;
         }
-        .form-card {
-            background: #ffffff;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
+
+        /* --- Parallax Background --- */
+        #background-container {
+            position: fixed;
+            top: 0.0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            perspective: 1000px;
         }
-        h1 {
-            font-weight: 600;
-            color: #3f3d56;
-            margin-bottom: 0.5rem;
+        #background-image {
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2670&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        p {
-            margin-bottom: 2rem;
-            color: #6c757d;
+
+        /* --- 3D Interactive Title --- */
+        .title-3d {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+            cursor: default;
         }
-        .input-group, fieldset {
-            margin-bottom: 1.5rem;
-            text-align: left;
+        .title-3d:hover {
+            transform: translateZ(20px) rotateX(5deg);
         }
-        .input-group label, legend {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #495057;
+
+        /* --- Interactive Step Headings --- */
+        .step-heading {
+            font-family: 'Orbitron', sans-serif;
+            color: #e0e0e0;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #89f7fe, #66a6ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+            cursor: default;
         }
-        input, select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            box-sizing: border-box;
+        .step-heading:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 15px rgba(102, 166, 255, 0.7);
         }
-        .inline-inputs { display: flex; gap: 1rem; }
-        .inline-inputs .input-group { flex: 1; }
-        fieldset {
-            border: 1px solid #ced4da;
-            border-radius: 8px;
-            padding: 1rem 1.5rem;
+
+        /* --- 3D Interactive Circular Image Options --- */
+        .option-container-3d {
+            perspective: 1200px;
         }
-        legend {
-            padding: 0 0.5rem;
-            font-weight: 600;
+        .option-card-circle {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+            width: 140px; /* Adjusted size */
+            height: 140px; /* Adjusted size */
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
         }
-        .checkbox-group, .radio-group {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
+        .option-card-circle .card-bg-image {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.3s ease; filter: brightness(0.7);
         }
-        .checkbox-group label, .radio-group label {
-            font-weight: 400;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
+        .option-card-circle:hover {
+            transform: translateZ(30px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
-        input[type="checkbox"], input[type="radio"] {
-            margin-right: 8px;
-            width: auto;
+        .option-card-circle:hover .card-bg-image { filter: brightness(1); }
+        .option-card-circle.selected {
+            transform: translateZ(10px) scale(1.02);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.7);
+            border-color: #38bdf8; /* sky-500 */
         }
-        button {
-            width: 100%;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 8px;
-            background-color: #667eea;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .option-card-circle .card-label {
+            position: absolute; bottom: 50%; left: 50%;
+            transform: translate(-50%, 50%); color: #fff;
+            font-weight: 600; font-size: 1rem;
+            text-shadow: 0 2px 5px rgba(0,0,0,1);
+            text-align: center; width: 100%; pointer-events: none;
         }
-        button:hover { background-color: #5a6edc; }
+        
+        /* --- Custom Number Stepper & Slider --- */
+        .number-stepper button {
+            width: 40px; height: 40px; border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.2s;
+        }
+        .number-stepper button:hover { background-color: rgba(255, 255, 255, 0.2); }
+        input[type=range] { -webkit-appearance: none; appearance: none; background: transparent; }
+        input[type=range]::-webkit-slider-runnable-track { height: 6px; background: rgba(255, 255, 255, 0.2); border-radius: 3px; }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none; height: 24px; width: 24px;
+            border-radius: 50%; background: #fff; margin-top: -9px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); cursor: pointer;
+        }
+        
+        /* --- Navigation Buttons --- */
+        .nav-btn {
+            padding: 0.75rem 1.5rem; border-radius: 9999px;
+            font-weight: 600; transition: all 0.2s ease-in-out;
+            border: 1px solid transparent;
+        }
+        .nav-btn.prev { background-color: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+        .nav-btn.prev:hover { background-color: rgba(255,255,255,0.2); }
+        .nav-btn.next { background-color: #fff; color: #0c0a18; }
+        .nav-btn.next:hover { background-color: #d1d5db; transform: scale(1.05); }
+        .nav-btn.submit { background-image: linear-gradient(to right, #38bdf8, #818cf8); color: #fff; }
+        .nav-btn.submit:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(129, 140, 248, 0.5); }
+
     </style>
 </head>
-<body>
-    <div class="form-card">
-        <h1>Plan Your Next Adventure 🗺</h1>
-        <p>Fill in all your preferences and we'll find the perfect trip with a detailed itinerary!</p>
-        
-        <form action="/results" method="post">
-            <!-- Trip Planner Inputs -->
-            <div class="input-group">
-                <label for="season">Preferred Season</label>
-                <select id="season" name="season" required>
-                    <option value="Winter">Winter ❄</option>
-                    <option value="Summer">Summer ☀</option>
-                    <option value="Monsoon">Monsoon 🌧</option>
-                    <option value="Autumn">Autumn 🍂</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="days">How many days do you want to travel?</label>
-                <input type="number" id="days" name="days" min="1" placeholder="e.g., 5" required>
-            </div>
-            <div class="inline-inputs">
-                <div class="input-group">
-                    <label for="adults">Adults</label>
-                    <input type="number" id="adults" name="adults" min="1" value="2" required>
-                </div>
-                <div class="input-group">
-                    <label for="children">Children</label>
-                    <input type="number" id="children" name="children" min="0" value="0" required>
-                </div>
-            </div>
-            <div class="input-group">
-                <label for="budget">Max Budget (per person)</label>
-                <input type="number" id="budget" name="budget" min="5000" step="1000" placeholder="e.g., 25000" required>
-            </div>
+<body class="bg-black text-gray-200">
 
-            <!-- Itinerary Planner Inputs -->
-            <fieldset>
-                <legend>What are your interests?</legend>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" name="interest" value="history"> History</label>
-                    <label><input type="checkbox" name="interest" value="art"> Art</label>
-                    <label><input type="checkbox" name="interest" value="culture"> Culture</label>
-                    <label><input type="checkbox" name="interest" value="food"> Food</label>
-                    <label><input type="checkbox" name="interest" value="nature"> Nature</label>
-                    <label><input type="checkbox" name="interest" value="beach"> Beach</label>
-                    <label><input type="checkbox" name="interest" value="shopping"> Shopping</label>
-                    <label><input type="checkbox" name="interest" value="nightlife"> Nightlife</label>
-                </div>
-            </fieldset>
-            <fieldset>
-                <legend>What pace do you prefer?</legend>
-                <div class="radio-group">
-                    <label><input type="radio" name="pace" value="relaxed" checked> Relaxed</label>
-                    <label><input type="radio" name="pace" value="packed"> Packed</label>
-                </div>
-            </fieldset>
-
-            <button type="submit">Find My Trip!</button>
-        </form>
+    <div id="background-container">
+        <div id="background-image"></div>
     </div>
+
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div id="planner-card" class="main-card w-full max-w-5xl p-6 md:p-10">
+            
+            <div id="form-content">
+                <div class="text-center mb-8 option-container-3d">
+                    <h1 class="title-3d text-5xl md:text-6xl font-extrabold tracking-tight">Plan your Trip</h1>
+                </div>
+
+                <div class="mb-12 max-w-2xl mx-auto">
+                    <div class="w-full bg-white/10 rounded-full h-2.5">
+                        <div id="progress-bar" class="bg-gradient-to-r from-sky-500 to-indigo-500 rounded-full h-2.5" style="width: 25%; transition: width 0.4s ease-in-out;"></div>
+                    </div>
+                </div>
+
+                <form id="trip-form" action="/results" method="POST">
+                    <div id="step-1" class="form-step">
+                        <h2 class="step-heading text-3xl font-bold mb-8 text-center">SELECT A SEASON</h2>
+                        <div class="option-container-3d">
+                            <div id="season-selector" class="flex flex-wrap justify-center gap-8">
+                                <div class="option-card-circle cursor-pointer" data-value="Winter"><img src="https://images.unsplash.com/photo-1487776425034-59a42887f38a?q=80&w=400" alt="Winter" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Winter';"><span class="card-label">Winter</span></div>
+                                <div class="option-card-circle cursor-pointer" data-value="Summer"><img src="https://images.unsplash.com/photo-1507525428034-b723a9ce6890?q=80&w=400" alt="Summer" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Summer';"><span class="card-label">Summer</span></div>
+                                <div class="option-card-circle cursor-pointer" data-value="Monsoon"><img src="https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?q=80&w=400" alt="Monsoon" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Monsoon';"><span class="card-label">Monsoon</span></div>
+                                <div class="option-card-circle cursor-pointer" data-value="Autumn"><img src="https://images.unsplash.com/photo-1475518112999-27aa5844a539?q=80&w=400" alt="Autumn" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Autumn';"><span class="card-label">Autumn</span></div>
+                            </div>
+                            <input type="hidden" id="season" name="season" required>
+                        </div>
+                    </div>
+
+                    <div id="step-2" class="form-step hidden">
+                        <h2 class="step-heading text-3xl font-bold mb-8 text-center">DETAILS & BUDGET</h2>
+                        <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+                            
+                            <div class="text-center">
+                                <label class="block mb-4 text-lg font-medium text-gray-300">Travelers</label>
+                                <div class="flex items-center justify-center gap-6">
+                                    <div class="text-center">
+                                        <div class="number-stepper flex items-center gap-4">
+                                            <button type="button" data-for="adults" data-op="-1">-</button>
+                                            <span id="adults-value" class="text-2xl font-bold w-10">1</span>
+                                            <button type="button" data-for="adults" data-op="1">+</button>
+                                        </div>
+                                        <span class="text-sm text-gray-400">Adults</span>
+                                    </div>
+                                    <div class="text-center">
+                                         <div class="number-stepper flex items-center gap-4">
+                                            <button type="button" data-for="children" data-op="-1">-</button>
+                                            <span id="children-value" class="text-2xl font-bold w-10">0</span>
+                                            <button type="button" data-for="children" data-op="1">+</button>
+                                        </div>
+                                        <span class="text-sm text-gray-400">Children</span>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="adults" name="adults" value="1">
+                                <input type="hidden" id="children" name="children" value="0">
+                            </div>
+
+                            <div class="text-center h-full">
+                                <label class="block mb-4 text-lg font-medium text-gray-300">How many days?</label>
+                                <div class="number-stepper flex items-center justify-center gap-4">
+                                    <button type="button" data-for="days" data-op="-1">-</button>
+                                    <span id="days-value" class="text-2xl font-bold w-10">5</span>
+                                    <button type="button" data-for="days" data-op="1">+</button>
+                                </div>
+                                <input type="hidden" id="days" name="days" value="5">
+                            </div>
+                            
+                            <div class="text-center">
+                                <div class="flex justify-between items-center mb-2 px-2">
+                                    <label for="budget" class="text-lg font-medium text-gray-300">Budget/Adult</label>
+                                    <span id="budget-value" class="font-bold text-xl text-white">₹25000</span>
+                                </div>
+                                <input type="range" id="budget" name="budget" min="15000" max="70000" step="1000" value="25000" class="w-full h-2 rounded-lg cursor-pointer">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="step-3" class="form-step hidden">
+                        <h2 class="step-heading text-3xl font-bold mb-8 text-center">WHAT ARE YOUR INTERESTS?</h2>
+                        <div class="option-container-3d">
+                           <div id="interest-selector" class="flex flex-wrap justify-center gap-6">
+                                <label class="cursor-pointer option-card-circle"><input type="checkbox" name="interest" value="history" class="hidden"><div class="option-card-circle"><img src="https://images.unsplash.com/photo-1485199833520-4a8c767c22d8?q=80&w=400" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=History';"><span class="card-label">History</span></div></label>
+                                <label class="cursor-pointer option-card-circle"><input type="checkbox" name="interest" value="art" class="hidden"><div class="option-card-circle"><img src="https://images.unsplash.com/photo-1547891654-e66ed711b999?q=80&w=400" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Art';"><span class="card-label">Art</span></div></label>
+                                <label class="cursor-pointer option-card-circle"><input type="checkbox" name="interest" value="food" class="hidden"><div class="option-card-circle"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=400" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Food';"><span class="card-label">Food</span></div></label>
+                                <label class="cursor-pointer option-card-circle"><input type="checkbox" name="interest" value="nature" class="hidden"><div class="option-card-circle"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=400" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Nature';"><span class="card-label">Nature</span></div></label>
+                                <label class="cursor-pointer option-card-circle"><input type="checkbox" name="interest" value="beach" class="hidden"><div class="option-card-circle"><img src="https://images.unsplash.com/photo-1509233725247-49e657c54213?q=80&w=400" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Beach';"><span class="card-label">Beach</span></div></label>
+                                <label class="cursor-pointer option-card-circle"><input type="checkbox" name="interest" value="shopping" class="hidden"><div class="option-card-circle"><img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?q=80&w=400" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Shopping';"><span class="card-label">Shopping</span></div></label>
+                                <label class="cursor-pointer option-card-circle"><input type="checkbox" name="interest" value="adventure" class="hidden"><div class="option-card-circle"><img src="https://images.unsplash.com/photo-1532693333339-1b8d6491a32a?q=80&w=400" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Adventure';"><span class="card-label">Adventure</span></div></label>
+                           </div>
+                        </div>
+                    </div>
+                    
+                    <div id="step-4" class="form-step hidden">
+                         <h2 class="step-heading text-3xl font-bold mb-8 text-center">WHAT'S YOUR TRAVEL PACE?</h2>
+                         <div class="option-container-3d">
+                            <div id="pace-selector" class="flex flex-wrap justify-center gap-8">
+                                <div class="option-card-circle cursor-pointer" data-value="relaxed"><img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=400" alt="Relaxed" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Relaxed';"><span class="card-label">Relaxed</span></div>
+                                <div class="option-card-circle cursor-pointer" data-value="packed"><img src="https://images.unsplash.com/photo-1486591093394-de634812b7e2?q=80&w=400" alt="Packed" class="card-bg-image" onerror="this.onerror=null;this.src='https://placehold.co/140x140/0c0a18/e0e0e0?text=Packed';"><span class="card-label">Packed</span></div>
+                            </div>
+                            <input type="hidden" id="pace" name="pace" value="relaxed">
+                        </div>
+                    </div>
+
+                    <div class="mt-16 flex justify-between items-center max-w-lg mx-auto">
+                        <button type="button" id="prev-btn" class="nav-btn prev opacity-0 invisible">Back</button>
+                        <button type="button" id="next-btn" class="nav-btn next">Next</button>
+                        <button type="submit" id="submit-btn" class="nav-btn submit hidden">Generate My Trip</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div id="success-message" class="hidden text-center py-10">
+                <h2 class="text-4xl font-bold mb-4 text-white">Crafting your adventure...</h2>
+                <p class="text-gray-300">Our AI is analyzing the cosmos to build your perfect trip.</p>
+                <div class="mt-8"><div class="animate-spin rounded-full h-10 w-10 border-b-2 border-sky-400 mx-auto"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgImage = document.getElementById('background-image');
+            document.body.addEventListener('mousemove', (e) => {
+                const rotateX = -1 * ((e.clientY - window.innerHeight / 2) / (window.innerHeight / 2)) * 2;
+                const rotateY = ((e.clientX - window.innerWidth / 2) / (window.innerWidth / 2)) * 2;
+                bgImage.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+            });
+
+            const form = document.getElementById('trip-form');
+            const steps = document.querySelectorAll('.form-step');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-btn');
+            const progressBar = document.getElementById('progress-bar');
+            const successMessage = document.getElementById('success-message');
+            const formContent = document.getElementById('form-content');
+            let currentStep = 0;
+            const totalSteps = steps.length;
+
+            const updateUI = () => {
+                progressBar.style.width = `${((currentStep + 1) / totalSteps) * 100}%`;
+                prevBtn.classList.toggle('opacity-0', currentStep === 0);
+                prevBtn.classList.toggle('invisible', currentStep === 0);
+                nextBtn.classList.toggle('hidden', currentStep === totalSteps - 1);
+                submitBtn.classList.toggle('hidden', currentStep !== totalSteps - 1);
+                steps.forEach((step, index) => step.classList.toggle('hidden', index !== currentStep));
+            };
+            
+            const validateStep = (stepIndex) => {
+                const currentStepElement = steps[stepIndex];
+                const requiredInput = currentStepElement.querySelector('input[required]');
+                if (requiredInput && !requiredInput.value) {
+                    const container = requiredInput.closest('.option-container-3d');
+                    if (container) {
+                        const errorEl = container.querySelector('.validation-error');
+                        if (!errorEl) {
+                           const msg = document.createElement('p');
+                           msg.textContent = 'Please make a selection to continue.';
+                           msg.className = 'validation-error text-red-400 text-center mt-4';
+                           container.appendChild(msg);
+                        }
+                    }
+                    return false;
+                }
+                const errorEl = currentStepElement.querySelector('.validation-error');
+                if(errorEl) errorEl.remove();
+                return true;
+            };
+
+            nextBtn.addEventListener('click', () => {
+                if (validateStep(currentStep)) {
+                    if (currentStep < totalSteps - 1) {
+                        currentStep++;
+                        updateUI();
+                    }
+                }
+            });
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 0) {
+                    currentStep--;
+                    updateUI();
+                }
+            });
+            form.addEventListener('submit', (e) => {
+                // Prevent default submission to show loading message
+                e.preventDefault();
+                formContent.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+
+                // Submit the form after a short delay
+                setTimeout(() => {
+                    form.submit();
+                }, 1500);
+            });
+
+            // --- Custom Input Handlers ---
+            document.getElementById('season-selector').addEventListener('click', (e) => {
+                const card = e.target.closest('.option-card-circle');
+                if (!card) return;
+                document.querySelectorAll('#season-selector .option-card-circle').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                document.getElementById('season').value = card.dataset.value;
+                validateStep(0);
+            });
+
+            document.getElementById('pace-selector').addEventListener('click', (e) => {
+                const card = e.target.closest('.option-card-circle');
+                if (!card) return;
+                document.querySelectorAll('#pace-selector .option-card-circle').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                document.getElementById('pace').value = card.dataset.value;
+            });
+
+            document.getElementById('interest-selector').addEventListener('change', e => {
+                if(e.target.type === 'checkbox') {
+                    e.target.closest('.option-card-circle').classList.toggle('selected', e.target.checked);
+                }
+            });
+            
+            // Number Steppers
+            document.querySelectorAll('.number-stepper button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.for;
+                    const operation = parseInt(button.dataset.op);
+                    const input = document.getElementById(targetId);
+                    const valueEl = document.getElementById(`${targetId}-value`);
+                    let currentValue = parseInt(input.value);
+                    let min = 0;
+                    if (targetId === 'adults' || targetId === 'days') {
+                        min = 1;
+                    }
+                    currentValue = Math.max(min, currentValue + operation);
+                    input.value = currentValue;
+                    valueEl.textContent = currentValue;
+                });
+            });
+
+            // Budget Slider
+            const budgetSlider = document.getElementById('budget');
+            const budgetValue = document.getElementById('budget-value');
+            budgetSlider.addEventListener('input', () => {
+                budgetValue.textContent = `₹${budgetSlider.value}`;
+            });
+
+            // Initial state
+            updateUI();
+            document.querySelector('#pace-selector .option-card-circle[data-value="relaxed"]').classList.add('selected');
+        });
+    </script>
 </body>
 </html>
