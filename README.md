@@ -2,7 +2,7 @@
   <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Trip Planner Logo" height="100"/>
 </p>
 
-<h1 align="center">🧳 Trip Planner – Travel Recommendation System (v1)</h1>
+<h1 align="center">🧳 Trip Planner – Travel Recommendation System (v2)</h1>
 
 <p align="center">
   <a href="https://trip-planner-6r80.onrender.com/"><img src="https://img.shields.io/badge/Live%20Demo-Online-green?style=flat-square" alt="Live Demo"></a>
@@ -14,24 +14,22 @@
 
 ## 🌍 Overview
 
-**Trip Planner** is an intelligent travel recommendation system that helps you find the perfect destination, tailored to your preferences. Whether you crave adventure, relaxation, or cultural experiences, Trip Planner empowers your next journey with data-driven suggestions.
+**Trip Planner v2** is an upgraded intelligent travel recommendation system that finds your perfect destination based on your preferences. With improved algorithms, new features, and a modernized UI, planning your trip is smarter and simpler than ever.
 
 ---
 
 ## 💡 Motivation
 
-Planning a trip can be overwhelming with endless choices and factors to consider. We wanted to make travel planning accessible, smart, and enjoyable for everyone. That’s why we built Trip Planner — to offer quick, reliable, and personalized recommendations so you spend more time exploring and less time searching.
+Trip planning should be fun, not stressful. With v2, we've made Trip Planner faster, more flexible, and even easier to use, so you can spend less time searching and more time exploring!
 
 ---
 
-## ✨ Features
+## ✨ What's New in v2
 
-- 🎯 **Personalized Recommendations:** Get suggestions based on your location, preferred travel type (Adventure, Heritage, Beach, etc.), season, budget, and group size.
-- 🧠 **Machine Learning Powered:** Cosine Similarity algorithm matches your preferences with curated destinations.
-- 🌐 **Modern UI:** Clean, user-friendly interface built with HTML/CSS and Flask.
-- 🚀 **Extensible Design:** Easily add new destinations, categories, or integrate third-party APIs.
-- 📱 **Responsive Experience:** Works seamlessly on desktop and mobile devices.
-- 🗺️ **Versioned Improvements:** Future versions will add maps, advanced ML, and live APIs.
+- 📱 **Mobile Experience:** Improved responsive design for seamless planning on any device.
+- 🏷️ **Expanded Dataset:** More destinations, categories, and filters for ultra-personalized results.
+- ⚡ **Performance Boost:** Faster load times and optimized backend logic.
+- **Added Day-wise planing system**
 
 ---
 
@@ -50,9 +48,9 @@ Planning a trip can be overwhelming with endless choices and factors to consider
 ## 🛠️ Tech Stack
 
 - **Backend:** Python, Flask
-- **Frontend:** HTML, CSS
+- **Frontend:** HTML, CSS, JavaScript, Interactive Maps
 - **Data Handling:** Pandas, NumPy
-- **Machine Learning:** Cosine Similarity for recommendations
+- **Machine Learning:** Collaborative Filtering, NLP, Cosine Similarity
 - **Model Serialization:** Pickle
 - **Deployment:** Render
 
@@ -60,19 +58,21 @@ Planning a trip can be overwhelming with endless choices and factors to consider
 
 ## 📊 Dataset
 
-Our recommendation engine uses a custom dataset of destinations, each annotated with features such as category, best season, indicative budget, and family suitability.  
+Our engine uses a custom, expanded dataset of destinations. Each entry includes category, best season, budget, family suitability, and new real-time updates.
+
 *Want to contribute destinations? See the [Contribution](#contributing) section!*
 
 ---
 
 ## 🚀 Example Usage
 
-1. **Input Preferences:**  
-   Fill in your desired location, travel type, season, budget, and group size.
-2. **Get Recommendations:**  
-   Instantly receive a list of destinations, ranked by how well they match your preferences.
-3. **Plan Your Trip:**  
-   Explore details and plan your next adventure with confidence!
+1. **Sign In or Continue as Guest**  
+2. **Input Preferences:**  
+   Enter location, travel type, season, budget, and group size.
+3. **Explore Map:**  
+   View personalized recommendations on an interactive map.
+4. **Save/Share:**  
+   Save trips to your profile or share with friends.
 
 ---
 
@@ -85,16 +85,6 @@ pip install -r requirements.txt
 python app.py
 # Visit http://localhost:5000 in your browser
 ```
-
----
-
-## 🛣️ Roadmap
-
-- [ ] Integrate real-time location APIs for dynamic suggestions
-- [ ] Advanced ML models (e.g., collaborative filtering, NLP-based)
-- [ ] Interactive map-based UI
-- [ ] User accounts & trip history
-- [ ] More diverse destinations and categories
 
 ---
 
@@ -116,13 +106,13 @@ For major changes, please open an issue first to discuss what you would like to 
 ## ❓ FAQ
 
 **Q: Can I add new destinations or categories?**  
-A: Yes! We encourage contributions. Please see the [Contributing](#contributing) section.
+A: Yes! See [Contributing](#contributing).
 
-**Q: Is my data stored anywhere?**  
-A: No, user input is not stored in this version.
+**Q: Are my preferences saved?**  
+A: Yes, in v2 your preferences and trip history are securely stored if you create an account.
 
 **Q: Will there be a mobile app?**  
-A: We plan to make the UI fully responsive and may consider a mobile app in future releases.
+A: Planned for future release – stay tuned!
 
 ---
 
@@ -147,9 +137,6 @@ A: We plan to make the UI fully responsive and may consider a mobile app in futu
 
 ---
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
 
