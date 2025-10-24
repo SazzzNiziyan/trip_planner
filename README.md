@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://trip-planner-6r80.onrender.com/"><img src="https://img.shields.io/badge/Live%20Demo-Online-green?style=flat-square" alt="Live Demo"></a>
-  <a  href="https://github.com/SazzzNiziyan/trip_planner"><img src="https://img.shields.io/github/stars/SazzzNiziyan/trip_planner?style=social" alt="Stars"></a>
+  <a href="https://github.com/SazzzNiziyan/trip_planner"><img src="https://img.shields.io/github/stars/SazzzNiziyan/trip_planner?style=social" alt="Stars"></a>
   <a href="https://github.com/SazzzNiziyan/trip_planner/blob/main/LICENSE"><img src="https://img.shields.io/github/license/SazzzNiziyan/trip_planner?style=flat-square" alt="License"></a>
 </p>
 
